@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 public partial class player : CharacterBody2D
 {
@@ -8,18 +9,26 @@ public partial class player : CharacterBody2D
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+	public int jumpCount = 0;
 
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
+		Debug.Write(jumpCount);
 
 		// Add the gravity.
-		if (!IsOnFloor())
+		if (jumpCount > 0)
+		{
 			velocity.Y += gravity * (float)delta;
+		}
 
 		// Handle Jump.
 		if (Input.IsActionJustPressed("flap"))
+		{
 			velocity.Y = JumpVelocity;
+			jumpCount += 1;
+		}
+
 
 		Velocity = velocity;
 		MoveAndSlide();
