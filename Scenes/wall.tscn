@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0v445ry2pt4j"]
 
-[ext_resource type="Script" path="res://Scenes/Walls.cs" id="1_361xa"]
+[ext_resource type="Script" path="res://Scripts/Walls.cs" id="1_bf824"]
 [ext_resource type="Texture2D" uid="uid://dqvq5wbd004dy" path="res://Art/white-rect.png" id="1_lvemj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkm4x"]
@@ -12,7 +12,7 @@ size = Vector2(20, 207)
 [node name="Wallnode" type="Node2D"]
 
 [node name="Walls" type="StaticBody2D" parent="."]
-script = ExtResource("1_361xa")
+script = ExtResource("1_bf824")
 
 [node name="UpperWallSprite" type="Sprite2D" parent="Walls"]
 position = Vector2(1, -350)

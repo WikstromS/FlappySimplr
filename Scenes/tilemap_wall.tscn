@@ -1,0 +1,201 @@
+[gd_scene load_steps=6 format=3 uid="uid://q3pvnroxup6l"]
+
+[ext_resource type="Script" path="res://Scripts/tilemap_wall.cs" id="1_h1gt7"]
+[ext_resource type="Texture2D" uid="uid://edfk44u6xyfv" path="res://Art/Terrain (16x16).png" id="1_tps6u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kutw0"]
+texture = ExtResource("1_tps6u")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+6:0/next_alternative_id = 7
+6:0/0 = 0
+6:0/6 = 6
+6:0/6/flip_v = true
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+6:1/next_alternative_id = 2
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+6:2/next_alternative_id = 2
+6:2/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+6:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+6:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+6:6/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+6:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+6:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+6:10/0 = 0
+7:0/next_alternative_id = 7
+7:0/0 = 0
+7:0/6 = 6
+7:0/6/flip_v = true
+8:0/next_alternative_id = 3
+8:0/0 = 0
+8:0/2 = 2
+8:0/2/flip_v = true
+9:0/0 = 0
+10:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+7:1/next_alternative_id = 2
+7:1/0 = 0
+8:1/next_alternative_id = 2
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+7:2/next_alternative_id = 2
+7:2/0 = 0
+8:2/next_alternative_id = 2
+8:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+20:8/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+20:9/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+20:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yoyg6"]
+sources/0 = SubResource("TileSetAtlasSource_kutw0")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vl1q5"]
+size = Vector2(97, 336)
+
+[node name="Walls" type="StaticBody2D"]
+script = ExtResource("1_h1gt7")
+
+[node name="UpperTileMap" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(0, -150)
+scale = Vector2(3, 3)
+tile_set = SubResource("TileSet_yoyg6")
+format = 2
+layer_0/tile_data = PackedInt32Array(-196609, 393216, 1, -131073, 393216, 1, -65537, 393216, 1, -1, 393216, 393216, -262144, 524288, 1, -196608, 524288, 1, -131072, 524288, 1, -65536, 524288, 131072, -327680, 524288, 1, -393216, 524288, 1, -458752, 524288, 1, -262145, 393216, 1, -327681, 393216, 1, -393217, 393216, 1)
+metadata/_edit_lock_ = true
+
+[node name="LowerTileMap" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(0, 150)
+rotation = 3.14159
+scale = Vector2(3, 3)
+tile_set = SubResource("TileSet_yoyg6")
+format = 2
+layer_0/tile_data = PackedInt32Array(-196609, 393216, 1, -131073, 393216, 1, -65537, 393216, 1, -1, 393216, 393216, -262144, 524288, 1, -196608, 524288, 1, -131072, 524288, 1, -65536, 524288, 131072, -262145, 393216, 1, -327680, 524288, 1, -393216, 524288, 1, -458752, 524288, 1, -327681, 393216, 1, -393217, 393216, 1, 524287, 393216, 1, 589823, 393216, 1, 655359, 393216, 1, 458752, 524288, 1, 524288, 524288, 1, 589824, 524288, 1)
+
+[node name="UpperWallColl" type="CollisionShape2D" parent="."]
+position = Vector2(0, -318)
+shape = SubResource("RectangleShape2D_vl1q5")
+
+[node name="UpperWallColl2" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 318)
+shape = SubResource("RectangleShape2D_vl1q5")

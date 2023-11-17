@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cnq1hgqx0frya" path="res://Art/Green.png" id="1_5cr8i"]
 [ext_resource type="Texture2D" uid="uid://edfk44u6xyfv" path="res://Art/Terrain (16x16).png" id="2_38xgv"]
 [ext_resource type="PackedScene" uid="uid://2m2qrkssjihr" path="res://Scenes/player.tscn" id="3_1elqw"]
-[ext_resource type="PackedScene" uid="uid://d0v445ry2pt4j" path="res://Scenes/wall.tscn" id="4_wwtgh"]
+[ext_resource type="PackedScene" uid="uid://q3pvnroxup6l" path="res://Scenes/tilemap_wall.tscn" id="5_1a2qm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j1fom"]
 texture = ExtResource("2_38xgv")
@@ -481,5 +481,5 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." instance=ExtResource("3_1elqw")]
 position = Vector2(328, 466)
 
-[node name="Wall" parent="." instance=ExtResource("4_wwtgh")]
-position = Vector2(1187, 315)
+[node name="Walls" parent="." instance=ExtResource("5_1a2qm")]
+position = Vector2(1106, 274)
