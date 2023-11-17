@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://djddf577by62l"]
 
-[ext_resource type="Texture2D" uid="uid://cnq1hgqx0frya" path="res://Art/Green.png" id="1_5cr8i"]
 [ext_resource type="Script" path="res://Scripts/main.cs" id="1_vorlb"]
+[ext_resource type="PackedScene" uid="uid://cloljh8nleo64" path="res://Scenes/background.tscn" id="2_e6pi6"]
 [ext_resource type="PackedScene" uid="uid://2m2qrkssjihr" path="res://Scenes/player.tscn" id="3_1elqw"]
 [ext_resource type="PackedScene" uid="uid://q3pvnroxup6l" path="res://Scenes/tilemap_wall.tscn" id="5_1a2qm"]
 [ext_resource type="PackedScene" uid="uid://bbstwyqoxw60c" path="res://Scenes/HUD.tscn" id="5_wfk5t"]
@@ -9,16 +9,7 @@
 [node name="main" type="Node"]
 script = ExtResource("1_vorlb")
 
-[node name="Background" type="TextureRect" parent="."]
-texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_5cr8i")
-stretch_mode = 1
-metadata/_edit_lock_ = true
+[node name="Background" parent="." instance=ExtResource("2_e6pi6")]
 
 [node name="Player" parent="." instance=ExtResource("3_1elqw")]
 position = Vector2(-269, 152)
