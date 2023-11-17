@@ -28,7 +28,7 @@ public partial class main : Node
 
 	public void UpdateScore()
 	{
-		_score += 1;
+		_score++;
 		GetNode<HUD>("HUD").UpdateScore(_score);
 	}
 

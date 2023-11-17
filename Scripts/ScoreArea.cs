@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class ScoreArea : Area2D
 {
@@ -15,8 +14,8 @@ public partial class ScoreArea : Area2D
 	{
 	}
 
-	private void OnBodyEntered(CharacterBody2D body)
+	private void OnBodyEntered(Node2D body)
 	{
-			EmitSignal(SignalName.ScoreAreaHit);
+		EmitSignal(SignalName.ScoreAreaHit);
 	}
 }

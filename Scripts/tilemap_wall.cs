@@ -18,6 +18,6 @@ public partial class tilemap_wall : StaticBody2D
 
 	public void ScoreAreaHit()
 	{
-			EmitSignal(SignalName.UpdateScore);
+		EmitSignal(SignalName.UpdateScore);
 	}
 }

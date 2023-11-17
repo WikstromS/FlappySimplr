@@ -213,3 +213,4 @@ position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_eyaoe")
 
 [connection signal="ScoreAreaHit" from="ScoreArea" to="." method="ScoreAreaHit"]
+[connection signal="body_entered" from="ScoreArea" to="ScoreArea" method="OnBodyEntered"]
