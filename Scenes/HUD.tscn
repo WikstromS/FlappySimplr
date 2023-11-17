@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbstwyqoxw60c"]
+
+[ext_resource type="Script" path="res://Scripts/HUD.cs" id="1_cw6sm"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_cw6sm")
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -83.5
+offset_right = 83.5
+offset_bottom = 53.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "Score : 20
+"
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 114.0
+offset_right = 100.0
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Aloita"
+
+[connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]

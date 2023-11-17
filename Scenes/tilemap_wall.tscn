@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://q3pvnroxup6l"]
+[gd_scene load_steps=8 format=3 uid="uid://q3pvnroxup6l"]
 
 [ext_resource type="Script" path="res://Scripts/tilemap_wall.cs" id="1_h1gt7"]
 [ext_resource type="Texture2D" uid="uid://edfk44u6xyfv" path="res://Art/Terrain (16x16).png" id="1_tps6u"]
+[ext_resource type="Script" path="res://Scripts/ScoreArea.cs" id="3_i07pu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kutw0"]
 texture = ExtResource("1_tps6u")
@@ -171,6 +172,9 @@ sources/0 = SubResource("TileSetAtlasSource_kutw0")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vl1q5"]
 size = Vector2(97, 336)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyaoe"]
+size = Vector2(20, 300)
+
 [node name="Walls" type="StaticBody2D"]
 script = ExtResource("1_h1gt7")
 
@@ -199,3 +203,13 @@ shape = SubResource("RectangleShape2D_vl1q5")
 [node name="UpperWallColl2" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 318)
 shape = SubResource("RectangleShape2D_vl1q5")
+
+[node name="ScoreArea" type="Area2D" parent="."]
+position = Vector2(-3, 0)
+script = ExtResource("3_i07pu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_eyaoe")
+
+[connection signal="ScoreAreaHit" from="ScoreArea" to="." method="ScoreAreaHit"]

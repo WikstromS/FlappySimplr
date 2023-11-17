@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://djddf577by62l"]
+[gd_scene load_steps=6 format=3 uid="uid://djddf577by62l"]
 
 [ext_resource type="Texture2D" uid="uid://cnq1hgqx0frya" path="res://Art/Green.png" id="1_5cr8i"]
+[ext_resource type="Script" path="res://Scripts/main.cs" id="1_vorlb"]
 [ext_resource type="PackedScene" uid="uid://2m2qrkssjihr" path="res://Scenes/player.tscn" id="3_1elqw"]
 [ext_resource type="PackedScene" uid="uid://q3pvnroxup6l" path="res://Scenes/tilemap_wall.tscn" id="5_1a2qm"]
+[ext_resource type="PackedScene" uid="uid://bbstwyqoxw60c" path="res://Scenes/HUD.tscn" id="5_wfk5t"]
 
-[node name="Node" type="Node"]
+[node name="main" type="Node"]
+script = ExtResource("1_vorlb")
 
 [node name="Background" type="TextureRect" parent="."]
 texture_filter = 1
@@ -18,7 +21,15 @@ stretch_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_1elqw")]
-position = Vector2(356, 305)
+position = Vector2(-269, 152)
 
 [node name="Walls" parent="." instance=ExtResource("5_1a2qm")]
-position = Vector2(1103, 371)
+position = Vector2(1104, 365)
+
+[node name="HUD" parent="." instance=ExtResource("5_wfk5t")]
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(66, 308)
+
+[connection signal="UpdateScore" from="Walls" to="." method="UpdateScore"]
+[connection signal="StartGame" from="HUD" to="." method="NewGame"]
