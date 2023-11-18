@@ -19,12 +19,14 @@ public partial class main : Node
 		_score = 0;
 
 		// instantiate a new player entity everytime the game starts
+		// this gets rid of the physics being applied when "dead" 
+
 		var playerScene = (PackedScene)ResourceLoader.Load("res://Scenes/player.tscn");
 		var newPlayer = playerScene.Instantiate();
 		AddChild(newPlayer);
 
 		var player = GetNode<player>("Player");
-		var startPosition = GetNode<Marker2D>("StartPosition");
+		var startPosition = GetNode<Marker2D>("PlayerStartPosition");
 		player.Start(startPosition.Position);
 
 		var hud = GetNode<HUD>("HUD");

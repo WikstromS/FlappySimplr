@@ -20,7 +20,7 @@ collision_layer = 2
 
 [node name="HUD" parent="." instance=ExtResource("5_wfk5t")]
 
-[node name="StartPosition" type="Marker2D" parent="."]
+[node name="PlayerStartPosition" type="Marker2D" parent="."]
 position = Vector2(66, 308)
 
 [node name="OutOfBoundsArea" type="Area2D" parent="."]
@@ -38,6 +38,7 @@ scale = Vector2(7.4, 1.52)
 shape = SubResource("RectangleShape2D_mf4xp")
 
 [connection signal="UpdateScore" from="Walls" to="." method="UpdateScore"]
+[connection signal="WallHit" from="Walls" to="." method="GameOver"]
 [connection signal="StartGame" from="HUD" to="." method="NewGame"]
 [connection signal="OutOfBoundsAreaHit" from="OutOfBoundsArea" to="." method="GameOver"]
 [connection signal="body_entered" from="OutOfBoundsArea" to="OutOfBoundsArea" method="OnBodyEntered"]

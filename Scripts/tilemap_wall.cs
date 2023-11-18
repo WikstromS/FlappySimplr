@@ -1,9 +1,11 @@
 using Godot;
 
-public partial class tilemap_wall : StaticBody2D
+public partial class tilemap_wall : Area2D
 {
 	[Signal]
 	public delegate void UpdateScoreEventHandler();
+	[Signal]
+	public delegate void WallHitEventHandler();
 
 
 	// Called when the node enters the scene tree for the first time.
@@ -19,5 +21,10 @@ public partial class tilemap_wall : StaticBody2D
 	public void ScoreAreaHit()
 	{
 		EmitSignal(SignalName.UpdateScore);
+	}
+
+	private void OnBodyEntered(Node2D body)
+	{
+		EmitSignal(SignalName.WallHit);
 	}
 }
