@@ -53,10 +53,6 @@ loop = false
 [node name="WallTimer" type="Timer" parent="."]
 wait_time = 2.5
 
-[node name="tilemap_wall" parent="." instance=ExtResource("5_1a2qm")]
-visible = false
-position = Vector2(1502, 479)
-
 [connection signal="StartGame" from="HUD" to="." method="NewGame"]
 [connection signal="OutOfBoundsAreaHit" from="OutOfBoundsArea" to="." method="GameOver"]
 [connection signal="body_entered" from="OutOfBoundsArea" to="OutOfBoundsArea" method="OnBodyEntered"]

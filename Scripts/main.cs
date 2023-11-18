@@ -60,6 +60,9 @@ public partial class main : Node
 		tilemap_wall wall = tilemap_wall_scene.Instantiate<tilemap_wall>();
 
 		AddChild(wall);
+		wall.Connect("UpdateScore", new Callable(this, MethodName.UpdateScore) );
+		wall.Connect("WallHit", new Callable(this, MethodName.GameOver) );
+
 	}
 
 }
