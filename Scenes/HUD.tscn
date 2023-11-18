@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/HUD.cs" id="1_cw6sm"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_cw6sm")
 
 [node name="ScoreLabel" type="Label" parent="."]
@@ -14,8 +14,20 @@ offset_right = 83.5
 offset_bottom = 53.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 36
-text = "Score : 20
-"
+
+[node name="MessageLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -226.0
+offset_right = 84.0
+offset_bottom = -173.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
 
 [node name="StartButton" type="Button" parent="."]
 anchors_preset = 8
@@ -32,4 +44,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Aloita"
 
+[node name="MessageTimer" type="Timer" parent="."]
+
 [connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="OnMessageTimerTimeout"]

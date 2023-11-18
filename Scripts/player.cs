@@ -9,6 +9,12 @@ public partial class player : CharacterBody2D
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	public int jumpCount = 0;
 
+	public void Start(Vector2 position)
+	{
+		Position = position;
+		Show();
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
@@ -29,5 +35,10 @@ public partial class player : CharacterBody2D
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	public void Die()
+	{
+		QueueFree();
 	}
 }

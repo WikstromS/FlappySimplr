@@ -1,29 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cloljh8nleo64"]
+[gd_scene load_steps=2 format=3 uid="uid://cloljh8nleo64"]
 
 [ext_resource type="Texture2D" uid="uid://cnq1hgqx0frya" path="res://Art/Green.png" id="1_7bow3"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bchwo"]
-size = Vector2(155.676, 10)
 
 [node name="Background" type="TextureRect"]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_7bow3")
 stretch_mode = 1
 metadata/_edit_lock_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="LowerColl" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(577, 678.4)
-scale = Vector2(7.4, 1.52)
-shape = SubResource("RectangleShape2D_bchwo")
-
-[node name="UpperColl" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(576, -7.6)
-scale = Vector2(7.4, 1.52)
-shape = SubResource("RectangleShape2D_bchwo")

@@ -1,26 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://djddf577by62l"]
+[gd_scene load_steps=7 format=3 uid="uid://djddf577by62l"]
 
 [ext_resource type="Script" path="res://Scripts/main.cs" id="1_vorlb"]
 [ext_resource type="PackedScene" uid="uid://cloljh8nleo64" path="res://Scenes/background.tscn" id="2_e6pi6"]
-[ext_resource type="PackedScene" uid="uid://2m2qrkssjihr" path="res://Scenes/player.tscn" id="3_1elqw"]
 [ext_resource type="PackedScene" uid="uid://q3pvnroxup6l" path="res://Scenes/tilemap_wall.tscn" id="5_1a2qm"]
 [ext_resource type="PackedScene" uid="uid://bbstwyqoxw60c" path="res://Scenes/HUD.tscn" id="5_wfk5t"]
+[ext_resource type="Script" path="res://Scenes/OutOfBoundsArea.cs" id="6_chwg2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf4xp"]
+size = Vector2(155.676, 10)
 
 [node name="main" type="Node"]
 script = ExtResource("1_vorlb")
 
 [node name="Background" parent="." instance=ExtResource("2_e6pi6")]
 
-[node name="Player" parent="." instance=ExtResource("3_1elqw")]
-position = Vector2(-269, 152)
-
 [node name="Walls" parent="." instance=ExtResource("5_1a2qm")]
 position = Vector2(1104, 365)
+collision_layer = 2
 
 [node name="HUD" parent="." instance=ExtResource("5_wfk5t")]
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(66, 308)
 
+[node name="OutOfBoundsArea" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("6_chwg2")
+
+[node name="UpperColl" type="CollisionShape2D" parent="OutOfBoundsArea"]
+position = Vector2(576, -80)
+scale = Vector2(7.4, 1.52)
+shape = SubResource("RectangleShape2D_mf4xp")
+
+[node name="LowerColl" type="CollisionShape2D" parent="OutOfBoundsArea"]
+position = Vector2(576, 758)
+scale = Vector2(7.4, 1.52)
+shape = SubResource("RectangleShape2D_mf4xp")
+
 [connection signal="UpdateScore" from="Walls" to="." method="UpdateScore"]
 [connection signal="StartGame" from="HUD" to="." method="NewGame"]
+[connection signal="OutOfBoundsAreaHit" from="OutOfBoundsArea" to="." method="GameOver"]
+[connection signal="body_entered" from="OutOfBoundsArea" to="OutOfBoundsArea" method="OnBodyEntered"]
