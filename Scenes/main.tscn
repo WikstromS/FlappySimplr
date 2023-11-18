@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://djddf577by62l"]
+[gd_scene load_steps=8 format=3 uid="uid://djddf577by62l"]
 
 [ext_resource type="Script" path="res://Scripts/main.cs" id="1_vorlb"]
 [ext_resource type="PackedScene" uid="uid://cloljh8nleo64" path="res://Scenes/background.tscn" id="2_e6pi6"]
@@ -9,14 +9,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mf4xp"]
 size = Vector2(155.676, 10)
 
+[sub_resource type="Curve2D" id="Curve2D_0xmyh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2.02399, -30.322, 0, 0, 0, 0, -1.29449, -276.573)
+}
+point_count = 2
+
 [node name="main" type="Node"]
 script = ExtResource("1_vorlb")
+tilemap_wall_scene = ExtResource("5_1a2qm")
 
 [node name="Background" parent="." instance=ExtResource("2_e6pi6")]
-
-[node name="Walls" parent="." instance=ExtResource("5_1a2qm")]
-position = Vector2(1104, 365)
-collision_layer = 2
 
 [node name="HUD" parent="." instance=ExtResource("5_wfk5t")]
 
@@ -37,8 +40,24 @@ position = Vector2(576, 758)
 scale = Vector2(7.4, 1.52)
 shape = SubResource("RectangleShape2D_mf4xp")
 
-[connection signal="UpdateScore" from="Walls" to="." method="UpdateScore"]
-[connection signal="WallHit" from="Walls" to="." method="GameOver"]
+[node name="WallPath" type="Path2D" parent="."]
+position = Vector2(1225.77, 520)
+scale = Vector2(1.3709, 1.08832)
+curve = SubResource("Curve2D_0xmyh")
+
+[node name="WallSpawnLocation" type="PathFollow2D" parent="WallPath"]
+position = Vector2(-2.02399, -30.322)
+rotation = -1.56783
+loop = false
+
+[node name="WallTimer" type="Timer" parent="."]
+wait_time = 2.5
+
+[node name="tilemap_wall" parent="." instance=ExtResource("5_1a2qm")]
+visible = false
+position = Vector2(1502, 479)
+
 [connection signal="StartGame" from="HUD" to="." method="NewGame"]
 [connection signal="OutOfBoundsAreaHit" from="OutOfBoundsArea" to="." method="GameOver"]
 [connection signal="body_entered" from="OutOfBoundsArea" to="OutOfBoundsArea" method="OnBodyEntered"]
+[connection signal="timeout" from="WallTimer" to="." method="OnWallTimerTimeOut"]

@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class ScoreArea : Area2D
+public partial class score_area : Area2D
 {
 	[Signal]
 	public delegate void ScoreAreaHitEventHandler();

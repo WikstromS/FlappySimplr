@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class tilemap_wall : Area2D
@@ -11,6 +12,8 @@ public partial class tilemap_wall : Area2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		var rng = new RandomNumberGenerator();
+		Position = new Vector2(1200, rng.RandiRange(220, 500));
 	}
 
     public override void _PhysicsProcess(double delta)

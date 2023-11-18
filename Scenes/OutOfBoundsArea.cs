@@ -18,7 +18,6 @@ public partial class OutOfBoundsArea : Area2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		GD.Print("Jokin osui outOfBounds");
 		EmitSignal(SignalName.OutOfBoundsAreaHit);
 	}
 }

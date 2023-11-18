@@ -3,6 +3,9 @@ using Godot;
 public partial class main : Node
 {
 
+	[Export]
+	public PackedScene tilemap_wall_scene {get;set;}
+
 	private int _score;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -33,19 +36,30 @@ public partial class main : Node
 		hud.UpdateScore(_score);
 
 		hud.ShowMessage("Onnea matkaan!");
+
+		GetNode<Timer>("WallTimer").Start();
 	}
 
 	public void GameOver()
 	{
-		GD.Print("GameOver");
 		GetNode<player>("Player").Die();
 		GetNode<HUD>("HUD").ShowGameOver();
+		GetNode<Timer>("WallTimer").Stop();
+
 	}
 
 	public void UpdateScore()
 	{
 		_score++;
 		GetNode<HUD>("HUD").UpdateScore(_score);
+	}
+
+	public void OnWallTimerTimeOut()
+	{
+		// new instance of tilemap_wall
+		tilemap_wall wall = tilemap_wall_scene.Instantiate<tilemap_wall>();
+
+		AddChild(wall);
 	}
 
 }
