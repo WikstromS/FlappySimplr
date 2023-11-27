@@ -39,6 +39,8 @@ public partial class main : Node
 		var startPosition = GetNode<Marker2D>("PlayerStartPosition");
 		player.Start(startPosition.Position);
 
+		GetNode<AudioStreamPlayer2D>("Music").Play();
+
 		var hud = GetNode<HUD>("HUD");
 		hud.UpdateScore(_score);
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://djddf577by62l"]
+[gd_scene load_steps=9 format=3 uid="uid://djddf577by62l"]
 
 [ext_resource type="Script" path="res://Scripts/main.cs" id="1_vorlb"]
 [ext_resource type="PackedScene" uid="uid://cloljh8nleo64" path="res://Scenes/background.tscn" id="2_e6pi6"]
 [ext_resource type="PackedScene" uid="uid://q3pvnroxup6l" path="res://Scenes/tilemap_wall.tscn" id="5_1a2qm"]
 [ext_resource type="PackedScene" uid="uid://bbstwyqoxw60c" path="res://Scenes/HUD.tscn" id="5_wfk5t"]
 [ext_resource type="Script" path="res://Scripts/OutOfBoundsArea.cs" id="5_wps0h"]
+[ext_resource type="AudioStream" uid="uid://dhlftluhs5wgy" path="res://Art/on-the-road-to-the-eighties_loop1-177567.mp3" id="6_4kbfd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mf4xp"]
 size = Vector2(155.676, 10)
@@ -52,6 +53,9 @@ loop = false
 
 [node name="WallTimer" type="Timer" parent="."]
 wait_time = 1.5
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_4kbfd")
 
 [connection signal="StartGame" from="HUD" to="." method="NewGame"]
 [connection signal="UnPauseGame" from="HUD" to="." method="UnPauseGame"]
