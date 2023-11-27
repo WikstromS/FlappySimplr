@@ -32,7 +32,6 @@ public partial class player : CharacterBody2D
 			jumpCount += 1;
 		}
 
-
 		Velocity = velocity;
 		MoveAndSlide();
 	}

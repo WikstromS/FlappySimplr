@@ -15,6 +15,13 @@ public partial class main : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		// Handle Pause.
+		if (Input.IsActionJustPressed("pause"))
+		{
+			var hud = GetNode<HUD>("HUD");
+			hud.ShowPauseMenu();
+			GetTree().Paused = true;
+		}
 	}
 
 	public void NewGame()
@@ -38,6 +45,11 @@ public partial class main : Node
 		hud.ShowMessage("Onnea matkaan!");
 
 		GetNode<Timer>("WallTimer").Start();
+	}
+
+	public void UnPauseGame()
+	{
+		GetTree().Paused = false;
 	}
 
 	public void GameOver()

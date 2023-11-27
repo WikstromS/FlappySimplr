@@ -54,6 +54,7 @@ loop = false
 wait_time = 1.5
 
 [connection signal="StartGame" from="HUD" to="." method="NewGame"]
+[connection signal="UnPauseGame" from="HUD" to="." method="UnPauseGame"]
 [connection signal="OutOfBoundsAreaHit" from="OutOfBoundsArea" to="." method="GameOver"]
 [connection signal="body_entered" from="OutOfBoundsArea" to="OutOfBoundsArea" method="OnBodyEntered"]
 [connection signal="timeout" from="WallTimer" to="." method="OnWallTimerTimeOut"]
