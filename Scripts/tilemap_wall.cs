@@ -18,7 +18,7 @@ public partial class tilemap_wall : Area2D
 
     public override void _PhysicsProcess(double delta)
     {
-        Position += new Vector2(-2, 0);
+        Position += new Vector2(-4, 0);
     }
 
 	public void ScoreAreaHit()

@@ -51,7 +51,7 @@ rotation = -1.56783
 loop = false
 
 [node name="WallTimer" type="Timer" parent="."]
-wait_time = 2.5
+wait_time = 1.5
 
 [connection signal="StartGame" from="HUD" to="." method="NewGame"]
 [connection signal="OutOfBoundsAreaHit" from="OutOfBoundsArea" to="." method="GameOver"]
